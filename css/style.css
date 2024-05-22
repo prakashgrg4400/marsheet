@@ -34,19 +34,78 @@ body {
 }
 
 .group-form {
-  width: 50%;
+  width: 48%;
   display: flex;
   flex-direction: column;
+  /* border: 1px solid black; */
 }
 
 input {
-  padding: 1rem;
+  padding: 0.8rem;
   border: 1px solid rgb(197, 191, 191);
   font-size: 1rem;
   outline: none;
 }
 
-label{
-    font-weight: 800;
-    
+label {
+  font-weight: 800;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  padding: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-subject {
+  background-color: rgb(43, 148, 218);
+  color: white;
+  margin: 1rem 0;
+}
+
+.subject-details {
+  display: flex;
+  gap: 1rem;
+  /* border: 1px solid black; */
+  margin-bottom: 1rem;
+}
+.subject-details input {
+  width: 33.33%;
+}
+
+input::placeholder {
+  color: rgb(178, 173, 173);
+  opacity: 0.8;
+}
+
+.generate-marksheet {
+  background-color: rgb(237, 114, 175);
+  color: #fff;
+  display: block;
+  margin-left: auto;
+  display: none;
+}
+
+#marksheet-data{
+  margin: 2rem 0;
+  display: none;
+}
+
+table {
+  /* border: 1px solid black; */
+  width: 100%;
+  border-collapse: collapse;
+}
+
+tr {
+  border: 1px solid rgb(141, 138, 138);
+}
+
+th , td {
+  border: 1px solid rgb(159, 157, 157);
+  padding: 0.5rem;
 }
