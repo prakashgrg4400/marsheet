@@ -55,3 +55,4 @@ function handleTableData(event) {
   console.log(totalObtained);
   console.log(totalMarks);
 }
+

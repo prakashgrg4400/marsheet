@@ -23,7 +23,7 @@ body {
 .marks-container {
   box-shadow: 0 0 10px 0 rgb(170, 168, 168);
   border-radius: 10px;
-  padding: 1rem;
+  padding: 2rem;
   margin-top: 1rem;
 }
 
@@ -90,22 +90,29 @@ input::placeholder {
   display: none;
 }
 
-#marksheet-data{
-  margin: 2rem 0;
-  display: none;
+table{
+  border: 1px solid grey;
+  /* border-collapse: collapse; */
 }
 
-table {
-  /* border: 1px solid black; */
+th , tr , td{
+  border: 1px solid black;
+}
+
+.logo , .student-pic{
   width: 100%;
-  border-collapse: collapse;
+  display: block;
+  margin: auto;
 }
 
-tr {
-  border: 1px solid rgb(141, 138, 138);
+.school-descp{
+  font-weight: 400;
+  font-size: 1rem;
+  padding-top: 1rem;
 }
-
-th , td {
-  border: 1px solid rgb(159, 157, 157);
-  padding: 0.5rem;
+td{
+  text-align: center;
+}
+table.student-details{
+  margin: 2rem 0;
 }
