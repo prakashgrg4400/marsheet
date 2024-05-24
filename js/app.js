@@ -70,7 +70,7 @@ function handleStudentMarksDisplay() {
 
   //!==> Resetting the tablr data by removing all the previous data .
   if (marksDetails.length) {
-    console.log(marksDetails);
+    // console.log(marksDetails);
     marksDetails.forEach((markDetail) => {
       markDetail.remove();
     });
@@ -89,12 +89,16 @@ function handleStudentMarksDisplay() {
   // fullMarks = Array.from(fullMarks);
   // obtainedMarks = Array.from(obtainedMarks);
 
-  // console.log(subjectNames);
-  // console.log(fullMarks);
-  // console.log(obtainedMarks);
+  console.log(subjectNames);
+  console.log(fullMarks);
+  console.log(obtainedMarks);
 
   //!====> displaying all subject with their respective "total marks" and "obtained marks"
-  if (subjectNames.length) {
+  if(subjectNames===undefined)
+    {
+          
+    }
+  else if (subjectNames.length) {
     for (
       let i = 0;
       i < subjectNames.length &&
@@ -125,7 +129,7 @@ function handleStudentMarksDisplay() {
       studentObtainesMarks = studentObtainesMarks + +obtainedMarks[i].value;
       studentTotalSubjectMarks = studentTotalSubjectMarks + +fullMarks[i].value;
     }
-  } else {
+  } else if(subjectNames) {
     let tableRow = document.createElement("tr");
     tableRow.setAttribute("class", "student-marks-details");
 
@@ -147,11 +151,10 @@ function handleStudentMarksDisplay() {
     totalDisplay.before(tableRow);
     studentObtainesMarks = studentObtainesMarks + +obtainedMarks.value;
     studentTotalSubjectMarks = studentTotalSubjectMarks + +fullMarks.value;
+  }else{
+        console.log("extra options");
   }
 
-  console.log(marksDetails);
-  let marksDetails2 = document.querySelectorAll(".student-marks-details");
-  console.log(marksDetails2);
 
   // console.log(studentObtainesMarks);
   // console.log(studentTotalSubjectMarks);
