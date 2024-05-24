@@ -54,19 +54,27 @@ generateMarksheet.addEventListener("click", handlegenerateMarksheet);
 function handlegenerateMarksheet(event) {
   event.preventDefault();
 
+  let marksheetContainer = document.querySelector(
+    ".container .marks-container:nth-of-type(2)"
+  );
+  marksheetContainer.style.display = "block";
   handleStudentMarksDisplay();
 }
 
 //!====================> student Marks Details displayed in a "table" <==============================
 
 function handleStudentMarksDisplay() {
-  let marksHeading = document.querySelector(".marks-heading");
+  // let marksHeading = document.querySelector(".marks-heading");
   let totalDisplay = document.querySelector(".total-display");
   let marksDetails = document.querySelectorAll(".student-marks-details");
 
-  marksDetails.forEach((markDetail) => {
-    markDetail.remove();
-  });
+  //!==> Resetting the tablr data by removing all the previous data .
+  if (marksDetails.length) {
+    console.log(marksDetails);
+    marksDetails.forEach((markDetail) => {
+      markDetail.remove();
+    });
+  }
 
   let studentTotalSubjectMarks = 0;
   let studentObtainesMarks = 0;
@@ -77,29 +85,59 @@ function handleStudentMarksDisplay() {
   let fullMarks = elements.fullMarks;
   let obtainedMarks = elements.obtainedMarks;
 
-  subjectNames = Array.from(subjectNames);
-  fullMarks = Array.from(fullMarks);
-  obtainedMarks = Array.from(obtainedMarks);
+  // subjectNames = Array.from(subjectNames);
+  // fullMarks = Array.from(fullMarks);
+  // obtainedMarks = Array.from(obtainedMarks);
+
+  // console.log(subjectNames);
+  // console.log(fullMarks);
+  // console.log(obtainedMarks);
 
   //!====> displaying all subject with their respective "total marks" and "obtained marks"
+  if (subjectNames.length) {
+    for (
+      let i = 0;
+      i < subjectNames.length &&
+      i < fullMarks.length &&
+      i < obtainedMarks.length;
+      i++
+    ) {
+      console.log("enter");
+      let tableRow = document.createElement("tr");
+      tableRow.setAttribute("class", "student-marks-details");
 
-  for (
-    let i = 0;
-    i < subjectNames.length && i < fullMarks.length && i < obtainedMarks.length;
-    i++
-  ) {
+      let tdSubjectName = document.createElement("td");
+      tdSubjectName.setAttribute("colspan", "2");
+      tdSubjectName.textContent = subjectNames[i].value;
+
+      let tdFullMarks = document.createElement("td");
+      tdFullMarks.textContent = fullMarks[i].value;
+
+      let tdObtainedMarks = document.createElement("td");
+      tdObtainedMarks.textContent = obtainedMarks[i].value;
+
+      tableRow.append(tdSubjectName);
+      tableRow.append(tdFullMarks);
+      tableRow.append(tdObtainedMarks);
+
+      //  marksHeading.after(tableRow);
+      totalDisplay.before(tableRow);
+      studentObtainesMarks = studentObtainesMarks + +obtainedMarks[i].value;
+      studentTotalSubjectMarks = studentTotalSubjectMarks + +fullMarks[i].value;
+    }
+  } else {
     let tableRow = document.createElement("tr");
     tableRow.setAttribute("class", "student-marks-details");
 
     let tdSubjectName = document.createElement("td");
     tdSubjectName.setAttribute("colspan", "2");
-    tdSubjectName.textContent = subjectNames[i].value;
+    tdSubjectName.textContent = subjectNames.value;
 
     let tdFullMarks = document.createElement("td");
-    tdFullMarks.textContent = fullMarks[i].value;
+    tdFullMarks.textContent = fullMarks.value;
 
     let tdObtainedMarks = document.createElement("td");
-    tdObtainedMarks.textContent = obtainedMarks[i].value;
+    tdObtainedMarks.textContent = obtainedMarks.value;
 
     tableRow.append(tdSubjectName);
     tableRow.append(tdFullMarks);
@@ -107,9 +145,13 @@ function handleStudentMarksDisplay() {
 
     //  marksHeading.after(tableRow);
     totalDisplay.before(tableRow);
-    studentObtainesMarks = studentObtainesMarks + +obtainedMarks[i].value;
-    studentTotalSubjectMarks = studentTotalSubjectMarks + +fullMarks[i].value;
+    studentObtainesMarks = studentObtainesMarks + +obtainedMarks.value;
+    studentTotalSubjectMarks = studentTotalSubjectMarks + +fullMarks.value;
   }
+
+  console.log(marksDetails);
+  let marksDetails2 = document.querySelectorAll(".student-marks-details");
+  console.log(marksDetails2);
 
   // console.log(studentObtainesMarks);
   // console.log(studentTotalSubjectMarks);
@@ -120,7 +162,11 @@ function handleStudentMarksDisplay() {
 
   let percentage = document.querySelector(".percentage");
   let studentPercent = (studentObtainesMarks / studentTotalSubjectMarks) * 100;
-  percentage.textContent = `${studentPercent}%`;
+  if (studentPercent) {
+    percentage.textContent = `${studentPercent}%`;
+  } else {
+    percentage.textContent = "0%";
+  }
 
   let grade = document.querySelector(".grade");
   if (studentPercent >= 90) {
@@ -139,6 +185,8 @@ function handleStudentMarksDisplay() {
     grade.textContent = "Fail";
   }
 }
+
+//!================> Candidate Image <======================
 
 function handleStudentImage(event) {
   console.log(event.target.files);
@@ -178,7 +226,7 @@ tagLineInput.addEventListener("input", function (evet) {
 const candidateNameInput = document.querySelector(".student-name");
 candidateNameInput.addEventListener("input", (event) => {
   const candidateName = document.querySelector(".candidate-name");
-  candidateName.textContent = event.target.value ;
+  candidateName.textContent = event.target.value;
 });
 
 //!================> Candidate Father Name <======================

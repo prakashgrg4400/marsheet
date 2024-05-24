@@ -141,3 +141,7 @@ table.student-details{
 .delete-btn i{
   color: #fff;
 }
+
+.container .marks-container:nth-of-type(2){
+  display: none;
+}
