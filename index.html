@@ -21,6 +21,30 @@
       <h1 class="heading">Marksheet Creator</h1>
       <div class="marks-container">
         <form action="">
+          <!-- School Details -->
+          <div class="name-container">
+            <div class="group-form">
+              <label for="">School Logo</label>
+              <input type="file" accept="image/*" class="school-logo-input" />
+            </div>
+            <div class="group-form">
+              <label for="">School Name</label>
+              <input
+                type="text"
+                placeholder="Your school name here"
+                class="school-name-input"
+              />
+            </div>
+            <div class="group-form">
+              <label for="">Tag Line</label>
+              <input
+                type="text"
+                placeholder="Tag that decribes your school"
+                class="tag-input"
+              />
+            </div>
+          </div>
+          <!-- Candidate Details -->
           <div class="name-container">
             <div class="group-form">
               <label for="">Candidate's Image</label>
@@ -51,6 +75,29 @@
               />
             </div>
           </div>
+          <!-- Candidates inner Details -->
+          <div class="name-container">
+            <div class="group-form">
+              <label for="">DOB</label>
+              <input type="date" class="date-input" />
+            </div>
+            <div class="group-form">
+              <label for="gender">Gender</label>
+              <select value="" name="gender" id="gender">
+                <option name="" value="male" id="">Male</option>
+                <option name="" value="female" id="">Female</option>
+                <option name="" value="other" id="">Other</option>
+              </select>
+            </div>
+            <div class="group-form">
+              <label for="">Class</label>
+              <input type="number" class="class-input"  />
+            </div>
+            <div class="group-form">
+              <label for="">Roll</label>
+              <input type="number" class="roll-input" />
+            </div>
+          </div>
           <button type="button" class="add-subject btn">
             <i class="fa-solid fa-plus"></i>
             Add Subjects
@@ -79,7 +126,7 @@
               <img src="./image/logo.png" alt="" class="logo" />
             </th>
             <th>
-              <h2>Coding Ott</h2>
+              <h2 class="school-name">Coding Ott</h2>
               <span class="school-descp"
                 >A coding institute for everyone | ESTD 2022 As Coding
                 Organization</span
@@ -96,21 +143,21 @@
           </tr>
           <tr>
             <th>Student's name</th>
-            <td>Prakash Gurung</td>
+            <td class="candidate-name">Prakash Gurung</td>
             <th>Father's Name</th>
-            <td>Mr. Gaman Singh Gurung</td>
+            <td class="father">Mr. Gaman Singh Gurung</td>
           </tr>
           <tr>
             <th>DOB</th>
-            <td>2002-02-17</td>
+            <td class="dob">2002-02-17</td>
             <th>Gender</th>
-            <td>Male</td>
+            <td class="candidate-gender">Male</td>
           </tr>
           <tr>
             <th>Class</th>
-            <td>10th</td>
+            <td class="class">10th</td>
             <th>Roll</th>
-            <td>30</td>
+            <td class="roll">30</td>
           </tr>
         </table>
 
@@ -129,13 +176,13 @@
 
           <tr class="total-display">
             <th colspan="3" align="right">Total Marks</th>
-            <td>400</td>
+            <td>0</td>
           </tr>
           <tr>
             <th align="right">Grade</th>
-            <td class="grade">A+</td>
+            <td class="grade">0</td>
             <th align="right">Percentage</th>
-            <td class="percentage">80%</td>
+            <td class="percentage">0%</td>
           </tr>
         </table>
       </div>

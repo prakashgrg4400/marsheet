@@ -32,6 +32,7 @@ body {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 2rem;
+  margin-bottom: 1rem;
   /* border: 1px solid black; */
 }
 
@@ -42,7 +43,7 @@ body {
   /* border: 1px solid black; */
 }
 
-input {
+input , #gender {
   padding: 0.8rem;
   border: 1px solid rgb(197, 191, 191);
   font-size: 1rem;
@@ -91,6 +92,9 @@ input::placeholder {
   margin-left: auto;
   display: none;
 }
+.generate-marksheet:hover{
+  background-color: rgb(215, 57, 136);
+}
 
 table{
   border: 1px solid grey;
@@ -124,4 +128,16 @@ table.student-details{
   /* padding: 2rem; */
   width: 100%;
   column-span: all;
+}
+
+.delete-btn{
+  padding: 1rem;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: rgb(222, 50, 50);
+  color: #fff;
+}
+.delete-btn i{
+  color: #fff;
 }
