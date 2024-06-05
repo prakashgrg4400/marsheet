@@ -5,6 +5,8 @@ const studentImageInput = document.querySelector(".student-image");
 const studentPicInMarksheet = document.querySelector(".student-pic");
 const form = document.querySelector("form");
 
+
+
 //!================= handeling adding new subject using "Add subject button"  =============
 addSubject.addEventListener("click", handleaddSubject);
 
@@ -59,6 +61,35 @@ function handlegenerateMarksheet(event) {
     );
     marksheetContainer.style.display = "block";
     handleStudentMarksDisplay();
+
+    //==> creating image
+       let imagePdf = document.querySelector("#create-pdf");
+       console.log(imagePdf);
+    handlePDF();
+    
+}
+
+//!====================================================
+
+async function handlePDF()
+{
+    let imagePdf = document.querySelector("#create-pdf");
+    const response = await html2canvas(imagePdf);
+    document.body.appendChild(response);
+    const canvaUrl = response.toDataURL("image/png" , 1);
+    // console.log(canvaUrl) ;
+
+    const a = document.createElement("a");
+    a.setAttribute("href" , canvaUrl);
+    a.setAttribute("target" , "_blank")
+    a.download = "canva_downloading";
+    console.log(a);
+    a.onclick = ()=>{
+        console.log("hello");
+    }
+    a.click();
+
+    
 }
 
 //!====================> student Marks Details displayed in a "table" <==============================
@@ -89,9 +120,9 @@ function handleStudentMarksDisplay() {
     // fullMarks = Array.from(fullMarks);
     // obtainedMarks = Array.from(obtainedMarks);
 
-    console.log(subjectNames);
-    console.log(fullMarks);
-    console.log(obtainedMarks);
+    // console.log(subjectNames);
+    // console.log(fullMarks);
+    // console.log(obtainedMarks);
 
     //!====> displaying all subject with their respective "total marks" and "obtained marks"
     if (subjectNames === undefined) {
@@ -103,7 +134,7 @@ function handleStudentMarksDisplay() {
             i < obtainedMarks.length;
             i++
         ) {
-            console.log("enter");
+            // console.log("enter");
             let tableRow = document.createElement("tr");
             tableRow.setAttribute("class", "student-marks-details");
 
